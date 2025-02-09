@@ -1,70 +1,70 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
-             x:Class="TamagotchiMauiApp.MainPage"
-             BackgroundImageSource="bg_home.png"
-             >
+             x:Class="TamagotchiMauiApp.MainPage">
 
-    <FlexLayout 
-         Direction="Column"
-         AlignItems="Center"
-         JustifyContent="SpaceEvenly"
-         VerticalOptions="FillAndExpand"
-         >
-         
-         <Label
-             Text="PetName:"
-             FontSize="52"
-             FontFamily="DeputyJack"
-             HorizontalOptions="Center" 
-             TextColor="Black"
-         />
-
-         <Label
-             Text="{Binding PetNameText, Mode=TwoWay}"
-             FontSize="40"
-             FontFamily="DeputyJack"
-             HorizontalOptions="Center" 
-             TextColor="Black"
-         />
-
-         <Entry
-             x:Name="PetNameEntry"
-             Placeholder="Enter Your PET name Here"
-             TextColor="Black"
+    <Grid>
+        <Image Source="bg_home.png" Aspect="AspectFill" />
+        <FlexLayout 
+             Direction="Column"
+             AlignItems="Center"
+             JustifyContent="SpaceEvenly"
              VerticalOptions="FillAndExpand"
-             HorizontalOptions="FillAndExpand"
-             BackgroundColor="LightGray"
-             WidthRequest="350"
-             MaxLength="30"
-             Text="{Binding PetNameText, Mode=TwoWay}" 
-             Completed="OnEntryCompleted" 
-             IsVisible="{Binding IsEntryVisible, Mode=TwoWay}"
-         />
+             HorizontalOptions="FillAndExpand">
 
-         <Image
-             x:Name="movingImage"
-             Source="monkey_idle.png"
-             IsVisible="{Binding IsMonkeyVisible, Mode=TwoWay}"
-             HeightRequest="250"
-             HorizontalOptions="Center" 
-         />
-
-        <ImageButton
-            x:Name="DeleteButton"
-            Source="button_delete.png"
-            Clicked="ClearPetData"
-            HorizontalOptions="FillAndExpand"
-            HeightRequest="90"
-            WidthRequest="190"
-            Aspect="AspectFit"
-         />
-
-        <tamagotchi:ButtonBrowseContentView 
-             IsVisible="{Binding IsMonkeyVisible, Mode=TwoWay}"
+            <Label
+                Text="PetName:"
+                FontSize="52"
+                FontFamily="DeputyJack"
+                HorizontalOptions="Center" 
+                TextColor="Black"
             />
-        <tamagotchi:TimerContentView />
-     </FlexLayout>
+
+            <Label
+                Text="{Binding PetNameText, Mode=TwoWay}"
+                FontSize="40"
+                FontFamily="DeputyJack"
+                HorizontalOptions="Center" 
+                TextColor="Black"
+            />
+
+            <Entry
+                x:Name="PetNameEntry"
+                Placeholder="Enter Your PET name Here"
+                TextColor="Black"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="LightGray"
+                WidthRequest="350"
+                MaxLength="30"
+                Text="{Binding PetNameText, Mode=TwoWay}" 
+                Completed="OnEntryCompleted" 
+                IsVisible="{Binding IsEntryVisible, Mode=TwoWay}"
+            />
+
+            <Image
+                x:Name="movingImage"
+                Source="monkey_idle.png"
+                IsVisible="{Binding IsMonkeyVisible, Mode=TwoWay}"
+                HeightRequest="250"
+                HorizontalOptions="Center" 
+            />
+
+            <ImageButton
+                x:Name="DeleteButton"
+                Source="button_delete.png"
+                Clicked="ClearPetData"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="90"
+                WidthRequest="190"
+                Aspect="AspectFit"
+            />
+
+            <tamagotchi:ButtonBrowseContentView 
+                IsVisible="{Binding IsMonkeyVisible, Mode=TwoWay}"
+            />
+            <tamagotchi:TimerContentView />
+        </FlexLayout>
+    </Grid>
 
 </ContentPage>
